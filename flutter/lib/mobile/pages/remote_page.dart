@@ -23,7 +23,7 @@ import '../../models/platform_model.dart';
 import '../../utils/image.dart';
 import '../widgets/gestures.dart';
 
-final initText = '\1' * 1024;
+final initText = '1' * 1024;
 
 class RemotePage extends StatefulWidget {
   RemotePage({Key? key, required this.id}) : super(key: key);
@@ -111,9 +111,9 @@ class _RemotePageState extends State<RemotePage> {
     _value = newValue;
     if (isIOS) {
       var i = newValue.length - 1;
-      for (; i >= 0 && newValue[i] != '\1'; --i) {}
+      for (; i >= 0 && newValue[i] != '1'; --i) {}
       var j = oldValue.length - 1;
-      for (; j >= 0 && oldValue[j] != '\1'; --j) {}
+      for (; j >= 0 && oldValue[j] != '1'; --j) {}
       if (i < j) j = i;
       newValue = newValue.substring(j + 1);
       oldValue = oldValue.substring(j + 1);
@@ -138,8 +138,8 @@ class _RemotePageState extends State<RemotePage> {
     }
     if (oldValue.isNotEmpty &&
         newValue.isNotEmpty &&
-        oldValue[0] == '\1' &&
-        newValue[0] != '\1') {
+        oldValue[0] == '1' &&
+        newValue[0] != '1') {
       // clipboard
       oldValue = '';
     }
@@ -452,7 +452,7 @@ class _RemotePageState extends State<RemotePage> {
             final cursorY = offset.dy;
             final visible =
                 gFFI.cursorModel.getVisibleRect().inflate(1); // extend edges
-            final size = MediaQueryData.fromWindow(ui.window).size;
+            final size = MediaQueryData.fromView(ui.window).size;
             if (!visible.contains(Offset(cursorX, cursorY))) {
               gFFI.cursorModel.move(size.width / 2, size.height / 2);
             }

@@ -658,7 +658,7 @@ class BottomSheetBody extends StatelessWidget {
 
   @override
   BottomSheet build(BuildContext context) {
-    final _actions = actions ?? [];
+    final actions = actions ?? [];
     return BottomSheet(
       builder: (BuildContext context) {
         return Container(
@@ -688,11 +688,11 @@ class BottomSheetBody extends StatelessWidget {
                     ],
                   ),
                   Row(children: () {
-                    _actions.add(IconButton(
+                    actions.add(IconButton(
                       icon: Icon(Icons.cancel_outlined),
                       onPressed: onCanceled,
                     ));
-                    return _actions;
+                    return actions;
                   }())
                 ],
               ),

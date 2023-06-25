@@ -457,7 +457,7 @@ abstract class BasePeerCard extends StatelessWidget {
   MenuEntryBase<String> _wolAction(String id) {
     return MenuEntryButton<String>(
       childBuilder: (TextStyle? style) => Text(
-        translate('WOL'),
+        translate('WakeOnLAN'),
         style: style,
       ),
       proc: () {

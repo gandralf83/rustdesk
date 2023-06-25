@@ -21,7 +21,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:texture_rgba_renderer/texture_rgba_renderer.dart';
 import 'package:uni_links/uni_links.dart';
-import 'package:uni_links_desktop/uni_links_desktop.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:win32/win32.dart' as win32;

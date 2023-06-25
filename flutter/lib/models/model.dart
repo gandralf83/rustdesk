@@ -670,7 +670,7 @@ class ImageModel with ChangeNotifier {
         await parent.target?.canvasModel.updateViewStyle();
         await parent.target?.canvasModel.updateScrollStyle();
       } else {
-        final size = MediaQueryData.fromWindow(ui.window).size;
+        final size = MediaQueryData.fromView(ui.window).size;
         final canvasWidth = size.width;
         final canvasHeight = size.height;
         final xscale = canvasWidth / image.width;
@@ -693,7 +693,7 @@ class ImageModel with ChangeNotifier {
   // for desktop, height should minus tabbar height
   double get maxScale {
     if (_image == null) return 1.5;
-    final size = MediaQueryData.fromWindow(ui.window).size;
+    final size = MediaQueryData.fromView(ui.window).size;
     final xscale = size.width / _image!.width;
     final yscale = size.height / _image!.height;
     return max(1.5, max(xscale, yscale));
@@ -703,7 +703,7 @@ class ImageModel with ChangeNotifier {
   // for desktop, height should minus tabbar height
   double get minScale {
     if (_image == null) return 1.5;
-    final size = MediaQueryData.fromWindow(ui.window).size;
+    final size = MediaQueryData.fromView(ui.window).size;
     final xscale = size.width / _image!.width;
     final yscale = size.height / _image!.height;
     return min(xscale, yscale) / 1.5;
@@ -850,7 +850,7 @@ class CanvasModel with ChangeNotifier {
 
   updateViewStyle() async {
     Size getSize() {
-      final size = MediaQueryData.fromWindow(ui.window).size;
+      final size = MediaQueryData.fromView(ui.window).size;
       // If minimized, w or h may be negative here.
       double w = size.width - leftToEdge - rightToEdge;
       double h = size.height - topToEdge - bottomToEdge;
@@ -1223,7 +1223,7 @@ class CursorModel with ChangeNotifier {
 
   // remote physical display coordinate
   Rect getVisibleRect() {
-    final size = MediaQueryData.fromWindow(ui.window).size;
+    final size = MediaQueryData.fromView(ui.window).size;
     final xoffset = parent.target?.canvasModel.x ?? 0;
     final yoffset = parent.target?.canvasModel.y ?? 0;
     final scale = parent.target?.canvasModel.scale ?? 1;
@@ -1233,7 +1233,7 @@ class CursorModel with ChangeNotifier {
   }
 
   double adjustForKeyboard() {
-    final m = MediaQueryData.fromWindow(ui.window);
+    final m = MediaQueryData.fromView(ui.window);
     var keyboardHeight = m.viewInsets.bottom;
     final size = m.size;
     if (keyboardHeight < 100) return 0;

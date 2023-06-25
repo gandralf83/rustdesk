@@ -705,7 +705,7 @@ class ScreenAdjustor {
       cbExitFullscreen();
       double scale = _screen!.scaleFactor;
       final wndRect = await WindowController.fromWindowId(windowId).getFrame();
-      final mediaSize = MediaQueryData.fromWindow(ui.window).size;
+      final mediaSize = MediaQueryData.fromView(ui.window).size;
       // On windows, wndRect is equal to GetWindowRect and mediaSize is equal to GetClientRect.
       // https://stackoverflow.com/a/7561083
       double magicWidth =
@@ -1827,7 +1827,7 @@ class _DraggableShowHideState extends State<_DraggableShowHide> {
         widget.dragging.value = true;
       }),
       onDragEnd: (details) {
-        final mediaSize = MediaQueryData.fromWindow(ui.window).size;
+        final mediaSize = MediaQueryData.fromView(ui.window).size;
         widget.fractionX.value +=
             (details.offset.dx - position.dx) / (mediaSize.width - size.width);
         if (widget.fractionX.value < left) {

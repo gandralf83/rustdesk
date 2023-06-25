@@ -144,7 +144,7 @@ class _PortForwardPageState extends State<PortForwardPage>
 
     return Theme(
       data: Theme.of(context)
-          .copyWith(backgroundColor: Theme.of(context).colorScheme.background),
+          .copyWith(colorScheme: ColorScheme(background: Theme.of(context).colorScheme.background)),
       child: Obx(() => ListView.builder(
           controller: ScrollController(),
           itemCount: pfs.length + 2,
@@ -291,7 +291,7 @@ class _PortForwardPageState extends State<PortForwardPage>
         ).marginOnly(left: _kTextLeftMargin));
     return Theme(
       data: Theme.of(context)
-          .copyWith(backgroundColor: Theme.of(context).colorScheme.background),
+          .copyWith(colorScheme: ColorScheme(background: Theme.of(context).colorScheme.background)),
       child: ListView.builder(
           controller: ScrollController(),
           itemCount: 2,
